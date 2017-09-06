@@ -254,7 +254,7 @@ class Notification extends \humhub\components\ActiveRecord
      */
     public static function findUnseen(User $user = null)
     {
-        return Notification::findGrouped($user)
+        return self::findGrouped($user)
                         ->andWhere(['seen' => 0])
                         ->orWhere(['IS', 'seen', new Expression('NULL')]);
     }
